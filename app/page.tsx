@@ -34,6 +34,7 @@ export default function Home() {
                 width={800}
                 height={1132}
                 className="h-auto w-full object-contain"
+                loading="eager"
               />
             </div>
           </div>
