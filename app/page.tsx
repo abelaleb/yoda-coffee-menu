@@ -207,21 +207,25 @@ export default function Index() {
           <div className="menu-column flex flex-col gap-16">
             <SectionCard>
               <MenuSection id="matcha" title="MATCHA BAR" items={matcha} />
+            </SectionCard>
+            <SectionCard>
               <MenuSection id="iced-drinks" title="ICED DRINKS" items={iced} />
             </SectionCard>
             <SectionCard>
+              
               <section className="relative" id="cakes">
                 <div className="text-center md:text-left mb-8">
                   <PillHeader>CAKES</PillHeader>
+                </div>
+                <div className="mt-8 rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-surface shadow-md">
+                  <img src={cakeImage.src} alt={cakeImage.alt} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col gap-4">
                   {cakes.map((it) => (
                     <MenuItem key={it.name} name={it.name} price={it.price} />
                   ))}
                 </div>
-                <div className="mt-8 rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-surface shadow-md">
-                  <img src={cakeImage.src} alt={cakeImage.alt} className="w-full h-full object-cover" />
-                </div>
+                
               </section>
             </SectionCard>
           </div>
@@ -267,14 +271,6 @@ export default function Index() {
             <SectionCard>
               <MenuSection id="sandwich" title="SANDWICH" items={sandwich} />
             </SectionCard>
-            <div className="mt-auto hidden md:block">
-              <img
-                src={sandwichBurgerImage}
-                alt="Yoda burger with fries"
-                className="w-full object-contain rounded-xl drop-shadow-xl"
-                style={{ maxHeight: "400px", mixBlendMode: "multiply" as React.CSSProperties["mixBlendMode"] }}
-              />
-            </div>
           </div>
 
           {/* Column 3: Pizza + Burger */}
