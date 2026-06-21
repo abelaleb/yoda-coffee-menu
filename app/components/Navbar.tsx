@@ -43,7 +43,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between w-full px-4 md:px-10 py-2 md:py-3 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <a className="flex items-center gap-2 md:gap-3" href="#">
-            <img src="/file.svg" alt="Yoda Coffee logo" className="h-10 w-10 md:h-14 md:w-14" />
+            <img src="/file.svg" alt="Yoda Coffee logo" className="h-[60px] w-[60px] md:h-[84px] md:w-[84px]" />
             <span className="font-display text-3xl md:text-4xl text-primary tracking-tighter">Yoda Coffee</span>
           </a>
           <span className="hidden lg:inline font-body text-on-surface-variant text-xs italic">Coffee, Culture, Community</span>

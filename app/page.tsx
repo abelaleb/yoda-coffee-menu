@@ -159,9 +159,6 @@ const cakeImage = {
   alt: "Cheesecake slice",
 };
 
-const sandwichBurgerImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAXSV_eIHvMqLtBhEbYSGiWRH0kwcTvfiQ4pqZX05BegrLIXhVnhwx9JUf3PDWPKfHHnSlQ4UqgSiIBfbjEJhnaqLSGWUI4u5_7K1brEPTwLBxIihFIG9RkgDzku7sscO6G4sZfYjwOWHV8myYtM1hP2FFzHb75JhIOLtZZPM_xPza6_8TH2h4e-9hvy2ZbPNA0zH4aBo0-T10MgDBqoolmeD5fIYo6YwZkGYxwylzZh3_A3NeXT764hJGjvmlhqzyEFNsP0F4_TGY";
-
 const wrapImage = {
   src: "/images/wrap.jpg",
   alt: "Wrap dish",
@@ -235,14 +232,18 @@ export default function Index() {
 
         {/* ── Part 2 Grid ── */}
         <MenuGrid>
-          {/* Column 1: Pasta + Mojitos + Milkshake + Smoothie + Wrap */}
+          {/* Column 1: Pasta + Sandwich */}
           <div className="menu-column flex flex-col gap-16">
             <SectionCard>
               <MenuSection id="pasta" title="PASTA" items={pasta} />
             </SectionCard>
             <SectionCard>
-              <MenuSection id="mojitos" title="MOJITOS" items={mojito} />
+              <MenuSection id="sandwich" title="SANDWICH" items={sandwich} />
             </SectionCard>
+          </div>
+
+          {/* Column 2: Milkshake + Smoothie + Wrap */}
+          <div className="menu-column flex flex-col gap-16">
             <SectionCard>
               <MenuSection id="milkshake" title="MILKSHAKE" items={milkshake} />
             </SectionCard>
@@ -266,19 +267,14 @@ export default function Index() {
             </SectionCard>
           </div>
 
-          {/* Column 2: Sandwich + burger image */}
+          {/* Column 3: Mojitos + Pizza + Burger */}
           <div className="menu-column flex flex-col gap-16">
             <SectionCard>
-              <MenuSection id="sandwich" title="SANDWICH" items={sandwich} />
+              <MenuSection id="mojitos" title="MOJITOS" items={mojito} />
             </SectionCard>
-          </div>
-
-          {/* Column 3: Pizza + Burger */}
-          <div className="menu-column flex flex-col gap-16">
             <SectionCard>
               <MenuSection id="pizza" title="PIZZA" items={pizza} />
             </SectionCard>
-
             <SectionCard>
               <section className="relative" id="burger">
                 <div className="text-center md:text-left mb-8">
@@ -299,14 +295,6 @@ export default function Index() {
                   {burgerItems.map((it) => (
                     <MenuItem key={it.name} name={it.name} price={it.price} desc={it.desc} />
                   ))}
-                </div>
-                <div className="mt-8 md:hidden">
-                  {/* <img
-                    src={mobileBurgerImage}
-                    alt="Yoda burger with fries"
-                    className="w-full object-contain rounded-xl drop-shadow-md"
-                    style={{ maxHeight: "250px", mixBlendMode: "multiply" as React.CSSProperties["mixBlendMode"] }}
-                  /> */}
                 </div>
               </section>
             </SectionCard>
