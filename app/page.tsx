@@ -162,9 +162,6 @@ const cakeImage = {
 const sandwichBurgerImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAXSV_eIHvMqLtBhEbYSGiWRH0kwcTvfiQ4pqZX05BegrLIXhVnhwx9JUf3PDWPKfHHnSlQ4UqgSiIBfbjEJhnaqLSGWUI4u5_7K1brEPTwLBxIihFIG9RkgDzku7sscO6G4sZfYjwOWHV8myYtM1hP2FFzHb75JhIOLtZZPM_xPza6_8TH2h4e-9hvy2ZbPNA0zH4aBo0-T10MgDBqoolmeD5fIYo6YwZkGYxwylzZh3_A3NeXT764hJGjvmlhqzyEFNsP0F4_TGY";
 
-const mobileBurgerImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuB8HuwkdfKNs7-BY1T-Jp_G3pkafd9jCYaQdA4DtuhmSkvtCJket7FbmbckekVtyBIdN5M4AlDpOCoRp1M7C8wWk-6iTVrErwxMsXuTnqSs0gpD2LNra0hzXv2i86tsUk_cQC6s0LyqnrmmBzQ18Ei0-h8-fYFvK5AdwYeFjRkkvbwn-QbYW1QISm51HZZPONoyL1LhEWd4bdkh5CBKzRMxTzcbNxToj7swGeFN4tAVbmDh0Qm6WsN-AuJcRPkHl9kwC6Y9YqQksmA";
-
 const wrapImage = {
   src: "/images/wrap.jpg",
   alt: "Wrap dish",
@@ -188,7 +185,9 @@ export default function Index() {
             <SectionCard>
               <MenuSection id="breakfast" title="BREAKFAST" headerImages={breakfastImages} items={breakfast} />
             </SectionCard>
-            <MenuSection id="salad" title="SALAD" items={salad} />
+            <SectionCard>
+              <MenuSection id="salad" title="SALAD" items={salad} />
+            </SectionCard>
           </div>
 
           {/* Column 2: Espresso + Non-Coffee + Traditional */}
@@ -196,8 +195,12 @@ export default function Index() {
             <SectionCard>
               <MenuSection id="espresso" title="ESPRESSO" items={espresso} />
             </SectionCard>
-            <MenuSection id="non-coffee" title="NON-COFFEE" items={nonCoffee} />
-            <MenuSection id="traditional" title="TRADITIONAL" items={traditional} />
+            <SectionCard>
+              <MenuSection id="non-coffee" title="NON-COFFEE" items={nonCoffee} />
+            </SectionCard>
+            <SectionCard>
+              <MenuSection id="traditional" title="TRADITIONAL" items={traditional} />
+            </SectionCard>
           </div>
 
           {/* Column 3: Matcha + Iced + Cakes */}
@@ -206,19 +209,21 @@ export default function Index() {
               <MenuSection id="matcha" title="MATCHA BAR" items={matcha} />
               <MenuSection id="iced-drinks" title="ICED DRINKS" items={iced} />
             </SectionCard>
-            <section className="relative" id="cakes">
-              <div className="text-center md:text-left mb-8">
-                <PillHeader>CAKES</PillHeader>
-              </div>
-              <div className="flex flex-col gap-4">
-                {cakes.map((it) => (
-                  <MenuItem key={it.name} name={it.name} price={it.price} />
-                ))}
-              </div>
-              <div className="mt-8 rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-surface shadow-md">
-                <img src={cakeImage.src} alt={cakeImage.alt} className="w-full h-full object-cover" />
-              </div>
-            </section>
+            <SectionCard>
+              <section className="relative" id="cakes">
+                <div className="text-center md:text-left mb-8">
+                  <PillHeader>CAKES</PillHeader>
+                </div>
+                <div className="flex flex-col gap-4">
+                  {cakes.map((it) => (
+                    <MenuItem key={it.name} name={it.name} price={it.price} />
+                  ))}
+                </div>
+                <div className="mt-8 rounded-full overflow-hidden w-48 h-48 mx-auto border-4 border-surface shadow-md">
+                  <img src={cakeImage.src} alt={cakeImage.alt} className="w-full h-full object-cover" />
+                </div>
+              </section>
+            </SectionCard>
           </div>
         </MenuGrid>
 
@@ -231,27 +236,37 @@ export default function Index() {
             <SectionCard>
               <MenuSection id="pasta" title="PASTA" items={pasta} />
             </SectionCard>
-            <MenuSection id="mojitos" title="MOJITOS" items={mojito} />
-            <MenuSection id="milkshake" title="MILKSHAKE" items={milkshake} />
-            <MenuSection id="smoothie" title="SMOOTHIE" items={smoothie} />
-            <section className="relative mt-4" id="wrap">
-              <div className="text-center md:text-left mb-8">
-                <PillHeader>WRAP</PillHeader>
-                <div className="mb-8 rounded-xl overflow-hidden h-48 w-full">
-                  <img src={wrapImage.src} alt={wrapImage.alt} className="w-full h-full object-cover" />
+            <SectionCard>
+              <MenuSection id="mojitos" title="MOJITOS" items={mojito} />
+            </SectionCard>
+            <SectionCard>
+              <MenuSection id="milkshake" title="MILKSHAKE" items={milkshake} />
+            </SectionCard>
+            <SectionCard>
+              <MenuSection id="smoothie" title="SMOOTHIE" items={smoothie} />
+            </SectionCard>
+            <SectionCard>
+              <section className="relative mt-4" id="wrap">
+                <div className="text-center md:text-left mb-8">
+                  <PillHeader>WRAP</PillHeader>
+                  <div className="mb-8 rounded-xl overflow-hidden h-48 w-full">
+                    <img src={wrapImage.src} alt={wrapImage.alt} className="w-full h-full object-cover" />
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col gap-6">
-                {wrap.map((it) => (
-                  <MenuItem key={it.name} name={it.name} price={it.price} desc={it.desc} />
-                ))}
-              </div>
-            </section>
+                <div className="flex flex-col gap-6">
+                  {wrap.map((it) => (
+                    <MenuItem key={it.name} name={it.name} price={it.price} desc={it.desc} />
+                  ))}
+                </div>
+              </section>
+            </SectionCard>
           </div>
 
           {/* Column 2: Sandwich + burger image */}
           <div className="menu-column flex flex-col gap-16">
-            <MenuSection id="sandwich" title="SANDWICH" items={sandwich} />
+            <SectionCard>
+              <MenuSection id="sandwich" title="SANDWICH" items={sandwich} />
+            </SectionCard>
             <div className="mt-auto hidden md:block">
               <img
                 src={sandwichBurgerImage}
@@ -264,7 +279,9 @@ export default function Index() {
 
           {/* Column 3: Pizza + Burger */}
           <div className="menu-column flex flex-col gap-16">
-            <MenuSection id="pizza" title="PIZZA" items={pizza} />
+            <SectionCard>
+              <MenuSection id="pizza" title="PIZZA" items={pizza} />
+            </SectionCard>
 
             <SectionCard>
               <section className="relative" id="burger">
@@ -288,12 +305,12 @@ export default function Index() {
                   ))}
                 </div>
                 <div className="mt-8 md:hidden">
-                  <img
+                  {/* <img
                     src={mobileBurgerImage}
                     alt="Yoda burger with fries"
                     className="w-full object-contain rounded-xl drop-shadow-md"
                     style={{ maxHeight: "250px", mixBlendMode: "multiply" as React.CSSProperties["mixBlendMode"] }}
-                  />
+                  /> */}
                 </div>
               </section>
             </SectionCard>
